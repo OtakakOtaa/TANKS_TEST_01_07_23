@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 1178930291
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2604368259
+    locked: 0
+  - name: Tank
+    uniqueID: 1970039731
+    locked: 0
+  - name: Bullet
+    uniqueID: 2294615791
+    locked: 0
+  - name: Visual
+    uniqueID: 2906736895
+    locked: 0
