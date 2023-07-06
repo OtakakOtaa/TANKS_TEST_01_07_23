@@ -5,9 +5,9 @@ namespace CodeBase.GameRule
 {
     public sealed class EntryPoint : MonoBehaviour
     {
-        [Inject] private GameCycle _gameCycle;
+        [Inject] private GameplayCycle _gameplayCycle;
         
         public void Start()
-            => _gameCycle.Enter();
+            => _gameplayCycle.Enter();
     }
 }

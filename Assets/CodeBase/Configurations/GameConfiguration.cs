@@ -1,6 +1,5 @@
 using CodeBase.Map.Obstacles;
 using CodeBase.Map.Services.Core;
-using CodeBase.Tanks_Turrets.Data;
 using CodeBase.Tanks_Turrets.Data.Configs;
 using CodeBase.Tanks_Turrets.Data.Entities;
 using UnityEngine;

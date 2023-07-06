@@ -1,4 +1,6 @@
+using System.Linq;
 using System.Threading;
+using CodeBase.GameRule.GameStates._GameplayInitState;
 using CodeBase.Infrastructure;
 using Cysharp.Threading.Tasks;
 using UnityEditor;
@@ -22,10 +24,7 @@ namespace CodeBase.GameRule.GameStates
 
         private async UniTaskVoid ObserveEndGame(CancellationToken token)
         {
-            UniTaskCompletionSource playerDied = new ();
-            _gameplayInitState.Player.Destroyed += () => playerDied.TrySetResult();
-            
-            await playerDied.Task;
+            await WaitPlayerDie();
             if(token.IsCancellationRequested) return;
             
 #if UNITY_EDITOR
@@ -36,9 +35,22 @@ namespace CodeBase.GameRule.GameStates
 
         private async UniTaskVoid ObserveRestart(CancellationTokenSource tokenSource)
         {
-            await UniTask.WaitUntil(() => _gameplayInitState.EnemyTanks.Count + _gameplayInitState.EnemyTurrets.Count is 0);
-            tokenSource.Cancel();
+            await WaitUntilPlayerKillsAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            tokenSource.Cancel();
+        }
+
+        private async UniTask WaitPlayerDie()
+        {
+            UniTaskCompletionSource playerDied = new ();
+            _gameplayInitState.Player.Destroyed += () => playerDied.TrySetResult();
+            await playerDied.Task;
+        }
+
+        private async UniTask WaitUntilPlayerKillsAll()
+        {
+            await UniTask.WaitUntil(() => _gameplayInitState.EnemiesTanks.Count() + 
+                                          _gameplayInitState.EnemiesTurrets.Count() is 0);
         }
     }
 }

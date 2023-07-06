@@ -22,7 +22,7 @@ MonoBehaviour:
     _groundTile: {fileID: 11400000, guid: e526511bb22234f1bb5ce06ddd6fbd96, type: 2}
     _obstacleTile: {fileID: 11400000, guid: db466355aeb96364d8981391913a8994, type: 2}
     _mapSize: {x: 30, y: 20}
-    _freedom: 30
+    _freedom: 10
   _obstacleBox: {fileID: 8765569475359944777, guid: 89ca61bb22748423ea208d35694b77d9, type: 3}
   _boxCount: 5
   _boxHeath: 10

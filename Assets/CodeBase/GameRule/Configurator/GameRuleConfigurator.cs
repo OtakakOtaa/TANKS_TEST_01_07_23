@@ -12,7 +12,7 @@ namespace CodeBase.GameRule.Configurator
         {
             Builder.Register<SceneScopeProvider>(Lifetime.Singleton);
             
-            Builder.Register<GameCycle>(Lifetime.Singleton)
+            Builder.Register<GameplayCycle>(Lifetime.Singleton)
                 .WithParameter(gameConfiguration);
         }
     }

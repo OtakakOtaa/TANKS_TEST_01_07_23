@@ -1,16 +1,17 @@
 using CodeBase.Configurations;
 using CodeBase.GameRule.GameStates;
+using CodeBase.GameRule.GameStates._GameplayInitState;
 using CodeBase.Infrastructure;
 using CodeBase.Infrastructure.Di;
 
 namespace CodeBase.GameRule
 {
-    public sealed class GameCycle : IGameState
+    public sealed class GameplayCycle : IGameState
     {
         private readonly SceneScopeProvider _scopeProvider;
         private readonly GameConfiguration _gameConfiguration;
 
-        public GameCycle(SceneScopeProvider sceneScopeProvider, GameConfiguration gameConfiguration)
+        public GameplayCycle(SceneScopeProvider sceneScopeProvider, GameConfiguration gameConfiguration)
         {
             _scopeProvider = sceneScopeProvider;
             _gameConfiguration = gameConfiguration;
